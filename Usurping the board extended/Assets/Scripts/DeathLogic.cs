@@ -7,7 +7,7 @@ public class DeathLogic : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy "))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
           GetComponent<MeshRenderer>().enabled = false;
           GetComponent<Rigidbody>().isKinematic = true;
@@ -15,6 +15,7 @@ public class DeathLogic : MonoBehaviour
           Invoke(nameof(ReloadLevel), 1.3f);
         }
     }
+    
 
     void ReloadLevel()
     {
