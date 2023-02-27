@@ -54,21 +54,7 @@ public class movement : MonoBehaviour
         return Physics.CheckSphere(groundCheck.position, .1f, ground);
     }
     */
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy "))
-        {
-          GetComponent<MeshRenderer>().enabled = false;
-          GetComponent<Rigidbody>().isKinematic = true;
-          GetComponent<CapsuleCollider>().enabled = false;
-          Invoke(nameof(ReloadLevel), 1.3f);
-        }
-
-        if (collision.gameObject.CompareTag("King"))
-        {
-          SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);      
-        }
-    }
+   
 
     
 
@@ -105,11 +91,6 @@ public class movement : MonoBehaviour
     {
         rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
         jumpSound.Play();
-    }
-
-    void ReloadLevel()
-    {
-         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     
